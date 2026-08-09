@@ -6,7 +6,7 @@ from dataclasses import dataclass, field
 
 @dataclass(frozen=True)
 class Draw:
-    """A single Mark Six draw result. Main numbers stored sorted ascending."""
+    """A single Lotto draw result. Main numbers stored sorted ascending."""
 
     draw_id: str
     draw_date: str  # ISO "YYYY-MM-DD"

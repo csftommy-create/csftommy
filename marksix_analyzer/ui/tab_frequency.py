@@ -52,7 +52,7 @@ class FrequencyTab(QWidget):
         hot = {r["number"] for r in rows[:10]}
         cold = {r["number"] for r in rows[-10:]}
 
-        # bar chart, ordered by number 1..49
+        # bar chart, ordered by number 1..59
         self.plot.clear()
         by_num = {r["number"]: r["count"] for r in rows}
         xs = sorted(by_num)

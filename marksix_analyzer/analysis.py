@@ -152,8 +152,9 @@ def odd_even_ratio(numbers) -> tuple[int, int]:
     return odd, len(numbers) - odd
 
 
-def high_low_split(numbers, boundary: int = 24) -> tuple[int, int]:
-    low = sum(1 for n in numbers if n <= boundary)
+def high_low_split(numbers, boundary: int = 29) -> tuple[int, int]:
+    low = sum(1 <= n <= 29 for n in numbers)
+    high = sum(30 <= n <= 59 for n in numbers)
     return len(numbers) - low, low  # (high, low)
 
 

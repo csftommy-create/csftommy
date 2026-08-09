@@ -1,4 +1,4 @@
-"""Data acquisition: DataProvider interface, HKJC fetcher, CSV import/export.
+"""Data acquisition: DataProvider interface, UKLotto fetcher, CSV import/export.
 
 All fetching sits behind ``DataProvider`` so the source can be swapped
 without touching the rest of the app. Network failures never raise past the
@@ -59,7 +59,7 @@ def parse_row(
         return None, RowError(line_no, "缺少期數 draw_id")
     all_nums = nums + [extra]
     if any(not (1 <= n <= 49) for n in all_nums):
-        return None, RowError(line_no, "號碼必須介乎 1 至 49")
+        return None, RowError(line_no, "號碼必須介乎 1 至 59")
     if len(set(nums)) != 6:
         return None, RowError(line_no, "六個主號碼不可重複")
     if extra in nums:
@@ -140,7 +140,7 @@ class DataProvider(ABC):
 
 
 class HKJCProvider(DataProvider):
-    """Fetches results from HKJC's public JSON endpoint.
+    """Fetches results from UKLotto's public JSON endpoint.
 
     HKJC changes these endpoints periodically. This class isolates every
     network concern; on any failure it returns an empty list so the app
@@ -148,14 +148,14 @@ class HKJCProvider(DataProvider):
     shape changes — nothing else in the app should need touching.
     """
 
-    ENDPOINT = "https://info.cld.hkjc.com/graphql/base/"
+    ENDPOINT = "https://www.national-lottery.co.uk/games/lotto/results"
     TIMEOUT = 15
     LAST_N = 30
 
     # The endpoint allowlists operations: it silently returns null unless the
     # query document matches a known operation *verbatim*. The fragment + query
     # below were extracted from HKJC's live bundle (bet.hkjc.com marksix
-    # results). If HKJC changes the shape, re-capture from the site's JS and
+    # results). If UKLotto changes the shape, re-capture from the site's JS and
     # update these two constants (and _parse) — nothing else needs touching.
     _FRAGMENT = (
         "fragment lotteryDrawsFragment on LotteryDraw {\n    id\n    year\n"

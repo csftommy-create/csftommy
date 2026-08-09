@@ -24,7 +24,7 @@ APP_AUTHOR = "Garion"
 
 # Bump when seed_data.csv changes so existing databases re-import the newer
 # bundled history on next launch (idempotent upsert; saved picks are untouched).
-SEED_VERSION = "2002-07-04..2025-12-28"
+SEED_VERSION = "2015-01-03..2026-08-08"
 
 # Number domain
 MIN_NUMBER = 1
@@ -54,14 +54,20 @@ def ensure_data_dir() -> None:
 
 # --- HKJC official ball color mapping -------------------------------------
 # Verify against HKJC site during deployment; source: spec section 5.1.
-RED_NUMBERS = {1, 2, 7, 8, 12, 13, 18, 19, 23, 24, 29, 30, 34, 35, 40, 45, 46}
-BLUE_NUMBERS = {3, 4, 9, 10, 14, 15, 20, 25, 26, 31, 36, 37, 41, 42, 47, 48}
-GREEN_NUMBERS = {5, 6, 11, 16, 17, 21, 22, 27, 28, 32, 33, 38, 39, 43, 44, 49}
+WHITE_NUMBERS = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+BLUE_NUMBERS = {10, 11, 12, 13, 14, 15, 16, 17, 18, 19}
+PINK_NUMBERS = {20, 21, 22, 23, 24, 25, 26, 27, 28, 29}
+GREEN_NUMBERS = {30, 31, 32, 33, 34, 35, 36, 37, 38, 39}
+YELLOW_NUMBERS = {40, 41, 42, 43, 44, 45, 46, 47, 48, 49}
+PURPLE_NUMBERS = {50, 51, 52, 53, 54, 55, 56, 57, 58, 59}
 
 BALL_COLORS = {
-    "red": "#d32f2f",
-    "blue": "#1565c0",
-    "green": "#2e7d32",
+    "white": "#ffffff",
+    "blue": "#03a9f4",
+    "pink": "#e91e63",
+    "green": "#8bc34a",
+    "yellow": "#ffd600",
+    "purple": "#8e24aa",
     "extra": "#616161",
 }
 
@@ -89,13 +95,19 @@ THEME = {
 
 
 def ball_color_name(n: int) -> str:
-    """Return the HKJC color group name for a number (1-49)."""
-    if n in RED_NUMBERS:
-        return "red"
+    """Return the HKJC color group name for a number (1-59)."""
+    if n in WHITE_NUMBERS:
+        return "white"
     if n in BLUE_NUMBERS:
         return "blue"
+    if n in PINK_NUMBERS:
+        return "pink"
     if n in GREEN_NUMBERS:
         return "green"
+    if n in YELLOW_NUMBERS:
+        return "yellow"
+    if n in PURPLE_NUMBERS:
+        return "purple"
     return "extra"
 
 
@@ -108,11 +120,10 @@ def ball_color_hex(n: int) -> str:
 PRIZE_TIERS = {
     (6, False): "prize_1",  # 頭獎
     (5, True): "prize_2",   # 二獎 5 + 特
-    (5, False): "prize_3",  # 三獎
-    (4, True): "prize_4",   # 四獎 4 + 特
-    (4, False): "prize_5",  # 五獎
-    (3, True): "prize_6",   # 六獎 3 + 特
-    (3, False): "prize_7",  # 七獎
+    (5, False): "prize_3",  # 三獎 5
+    (4, False): "prize_4",  # 四獎 4
+    (3, False): "prize_5",  # 五獎 3
+    (2, False): "prize_6",  # 六獎 2
 }
 
 

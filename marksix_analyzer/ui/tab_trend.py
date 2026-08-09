@@ -37,7 +37,7 @@ class TrendTab(QWidget):
         self.plot.setMenuEnabled(False)
         self.plot.getAxis("left").setLabel(s("gap_col_number"))
         self.plot.getAxis("bottom").setLabel(s("data_col_draw"))
-        self.plot.setYRange(1, 49)
+        self.plot.setYRange(1, 59)
         root.addWidget(self.plot, 1)
 
     def set_data(self, draws: list[Draw], params: dict) -> None:

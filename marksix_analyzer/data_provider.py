@@ -13,7 +13,7 @@ from pathlib import Path
 
 from .models import Draw
 
-CSV_HEADER = ["draw_id", "date", "n1", "n2", "n3", "n4", "n5", "n6", "extra"]
+CSV_HEADER = ["draw_id", "draw_date", "n1", "n2", "n3", "n4", "n5", "n6", "extra", "jackpot"]
 
 
 def _to_int(value) -> int | None:

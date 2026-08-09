@@ -8,7 +8,7 @@ from __future__ import annotations
 
 ZH: dict[str, str] = {
     # App / general
-    "app_title": "六合彩數據分析器",
+    "app_title": "Lotto數據分析器",
     "header_subtitle": "統計分析工具 · 版本 {version}",
     "ok": "確定",
     "cancel": "取消",
@@ -85,7 +85,7 @@ ZH: dict[str, str] = {
 
     # Distribution tab
     "dist_oddeven": "單雙比分佈",
-    "dist_highlow": "大小比分佈（1-24 / 25-49）",
+    "dist_highlow": "大小比分佈（1-29 / 30-59）",
     "dist_sum": "六個號碼總和分佈",
     "dist_sum_stat": "平均：{mean:.1f}　中位數：{median:.1f}　標準差：{std:.1f}",
     "dist_consecutive": "連號統計",
@@ -113,7 +113,7 @@ ZH: dict[str, str] = {
     "sp_filter_sametail": "同尾限制（避開 3 個或以上同尾）",
     "sp_filter_birthday": "生日避開（避開全部號碼 ≤ 31）",
     "sp_filter_arithmetic": "熱門組合避開（避開等差數列）",
-    "sp_filter_exclude_last": "排除上期號碼",
+    "sp_filter_exclude_last": "上期號碼限制(避開 3 個或以上上期號碼)",
     "sp_saved_ok": "已儲存至我的號碼",
     "sp_copied": "已複製到剪貼簿",
     "sp_gen_failed": "在嘗試次數內無法產生符合條件的組合，請放寬過濾條件。",
@@ -147,7 +147,6 @@ ZH: dict[str, str] = {
     "prize_4": "四獎",
     "prize_5": "五獎",
     "prize_6": "六獎",
-    "prize_7": "七獎",
 
     # Data tab
     "data_title": "資料管理",
@@ -170,7 +169,7 @@ ZH: dict[str, str] = {
     "manual_extra": "特別號碼",
     "manual_invalid": "輸入無效：{reason}",
     "manual_dup_number": "號碼不可重複",
-    "manual_range": "號碼必須介乎 1 至 49",
+    "manual_range": "號碼必須介乎 1 至 59",
     "manual_need_six": "必須輸入六個主號碼",
 
     # CSV import
@@ -181,7 +180,7 @@ ZH: dict[str, str] = {
     "csv_filter": "CSV 檔案 (*.csv)",
 
     # About / disclaimer
-    "about_title": "關於六合彩數據分析器",
+    "about_title": "關於Lotto數據分析器",
     "disclaimer_title": "重要聲明",
     "disclaimer_body": (
         "本程式為統計及分析工具，並非預測工具。\n"
@@ -191,8 +190,8 @@ ZH: dict[str, str] = {
         "請理性參與，量力而為。"
     ),
     "about_version": "版本：{version}",
-    "about_data_source": "資料來源：香港賽馬會（HKJC）公開攪珠結果及社群歷史資料集。",
-    "about_seed_note": "隨附之 seed_data.csv 收錄自 2002 年 7 月 4 日（改為 49 選 6 攪珠制）起之歷史攪珠結果；最新期數會於連線時自動更新。",
+    "about_data_source": "資料來源：UK Lotto 公開攪珠結果及社群歷史資料集。",
+    "about_seed_note": "隨附之 seed_data.csv 收錄自 2015 年 1 月 3 日 起之歷史攪珠結果；最新期數會於連線時自動更新。",
 
     # Errors / misc
     "error": "錯誤",
@@ -202,7 +201,7 @@ ZH: dict[str, str] = {
 
 EN: dict[str, str] = {
     # App / general
-    "app_title": "Mark Six Analyzer",
+    "app_title": "Lotto Analyzer",
     "header_subtitle": "Statistics & Analysis · v{version}",
     "ok": "OK",
     "cancel": "Cancel",
@@ -279,7 +278,7 @@ EN: dict[str, str] = {
 
     # Distribution tab
     "dist_oddeven": "Odd : Even Ratio",
-    "dist_highlow": "High : Low Ratio (1-24 / 25-49)",
+    "dist_highlow": "High : Low Ratio (1-29 / 30-59)",
     "dist_sum": "Sum of Six Numbers",
     "dist_sum_stat": "Mean: {mean:.1f}   Median: {median:.1f}   Std: {std:.1f}",
     "dist_consecutive": "Consecutive Numbers",
@@ -307,7 +306,7 @@ EN: dict[str, str] = {
     "sp_filter_sametail": "Same tail (reject 3+ sharing a tail digit)",
     "sp_filter_birthday": "Birthday (reject all numbers ≤ 31)",
     "sp_filter_arithmetic": "Popular combos (reject arithmetic sequences)",
-    "sp_filter_exclude_last": "Exclude last draw's numbers",
+    "sp_filter_exclude_last": "Last draw's numbers (reject 3+ sharing last draw's)",
     "sp_saved_ok": "Saved to My Numbers",
     "sp_copied": "Copied to clipboard",
     "sp_gen_failed": "Could not generate a combination within the attempt limit — loosen the filters.",
@@ -336,13 +335,12 @@ EN: dict[str, str] = {
     "saved_empty": "No saved numbers yet",
 
     # Prize tiers
-    "prize_1": "1st Prize",
+    "prize_1": "Jackpot",
     "prize_2": "2nd Prize",
     "prize_3": "3rd Prize",
     "prize_4": "4th Prize",
     "prize_5": "5th Prize",
     "prize_6": "6th Prize",
-    "prize_7": "7th Prize",
 
     # Data tab
     "data_title": "Data",
@@ -376,7 +374,7 @@ EN: dict[str, str] = {
     "csv_filter": "CSV files (*.csv)",
 
     # About / disclaimer
-    "about_title": "About Mark Six Analyzer",
+    "about_title": "About Lotto Analyzer",
     "disclaimer_title": "Important Disclaimer",
     "disclaimer_body": (
         "This is a statistics and analysis tool, not a prediction tool.\n"
@@ -388,8 +386,8 @@ EN: dict[str, str] = {
         "Please play responsibly."
     ),
     "about_version": "Version: {version}",
-    "about_data_source": "Data source: Hong Kong Jockey Club (HKJC) public draw results and community historical datasets.",
-    "about_seed_note": "The bundled seed_data.csv covers draws from 2002-07-04 (when Mark Six moved to the 6-from-49 format); the latest draws are fetched automatically when online.",
+    "about_data_source": "Data source: UK Lotto public draw results and community historical datasets.",
+    "about_seed_note": "The bundled seed_data.csv covers draws from 2015-01-03; the latest draws are fetched automatically when online.",
 
     # Errors / misc
     "error": "Error",

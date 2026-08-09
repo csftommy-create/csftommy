@@ -17,8 +17,8 @@ except Exception:  # pragma: no cover - platformdirs should be installed
         return str(Path.home() / ".local" / "share" / appname)
 
 
-APP_NAME = "MarkSixAnalyzer"
-APP_NAME_ZH = "六合彩數據分析器"
+APP_NAME = "UKLottoAnalyzer"
+APP_NAME_ZH = "UKLotto數據分析器"
 APP_VERSION = "1.0.0"
 APP_AUTHOR = "Garion"
 
@@ -28,7 +28,7 @@ SEED_VERSION = "2002-07-04..2025-12-28"
 
 # Number domain
 MIN_NUMBER = 1
-MAX_NUMBER = 49
+MAX_NUMBER = 59
 MAIN_COUNT = 6
 
 # --- Paths -----------------------------------------------------------------

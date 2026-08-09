@@ -47,7 +47,7 @@ def _numbers_of(draw: Draw, include_extra: bool) -> tuple[int, ...]:
 # 4.1 Frequency analysis (號碼頻率)
 # --------------------------------------------------------------------------
 def frequency(draws: list[Draw], include_extra: bool = False) -> dict[int, int]:
-    """Count appearances per number 1-49. Always returns every number."""
+    """Count appearances per number 1-59. Always returns every number."""
     counts = Counter()
     for d in draws:
         counts.update(_numbers_of(d, include_extra))

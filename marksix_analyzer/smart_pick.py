@@ -29,8 +29,8 @@ class FilterConfig:
     odd_even: bool = True          # reject 6:0 or 0:6
     high_low: bool = True          # reject all-high or all-low
     sum_range: bool = True         # reject sum outside [sum_min, sum_max]
-    sum_min: int = 100
-    sum_max: int = 200
+    sum_min: int = 90
+    sum_max: int = 290
     consecutive: bool = True       # reject >= 3 consecutive
     same_tail: bool = True         # reject >= 3 sharing a tail digit
     birthday: bool = True          # reject all numbers <= 31
@@ -47,8 +47,9 @@ def _reject_odd_even(nums: list[int]) -> bool:
     return odd == 0 or odd == len(nums)
 
 
-def _reject_high_low(nums: list[int], boundary: int = 24) -> bool:
-    low = sum(1 for n in nums if n <= boundary)
+def _reject_high_low(nums: list[int], boundary: int = 29) -> bool:
+    low = sum(1 <= n <= 29 for n in numbers)
+    high = sum(30 <= n <= 59 for n in numbers)
     return low == 0 or low == len(nums)
 
 

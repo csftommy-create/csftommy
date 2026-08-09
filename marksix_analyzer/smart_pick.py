@@ -35,7 +35,7 @@ class FilterConfig:
     same_tail: bool = True         # reject >= 3 sharing a tail digit
     birthday: bool = True          # reject all numbers <= 31
     arithmetic: bool = True        # reject arithmetic sequences
-    exclude_last: bool = False     # reject any of last draw's numbers
+    exclude_last: bool = True      # reject >= 2 last draw's numbers
     last_draw_numbers: list[int] = field(default_factory=list)
 
 
@@ -79,7 +79,14 @@ def _reject_arithmetic(nums: list[int]) -> bool:
 
 
 def _reject_exclude_last(nums: list[int], last: list[int]) -> bool:
-    return any(n in last for n in nums)
+    previous_numbers = set(previous_draw.numbers)
+
+    repeat_count = len(
+        set(numbers) & previous_numbers
+    )
+
+    if repeat_count > 2:
+        reject
 
 
 def is_rejected(nums: list[int], cfg: FilterConfig) -> tuple[bool, str | None]:

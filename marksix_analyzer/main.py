@@ -14,11 +14,11 @@ def main() -> int:
         from .ui.main_window import MainWindow
         from .ui.theme import apply_theme
     except ImportError:
-        # Running as a plain script (python marksix_analyzer/main.py)
-        from marksix_analyzer.config import APP_NAME_ZH, ensure_data_dir
-        from marksix_analyzer.db import Database
-        from marksix_analyzer.ui.main_window import MainWindow
-        from marksix_analyzer.ui.theme import apply_theme
+        # Running as a plain script (python UKLottoAnalyzer/main.py)
+        from UKLottoAnalyzer.config import APP_NAME_ZH, ensure_data_dir
+        from UKLottoAnalyzer.db import Database
+        from UKLottoAnalyzer.ui.main_window import MainWindow
+        from UKLottoAnalyzer.ui.theme import apply_theme
 
     ensure_data_dir()
     app = QApplication(sys.argv)

@@ -4,7 +4,7 @@ This fetches the most recent draws HKJC exposes (currently ~50, back to
 mid-2023) and writes them to the bundled seed_data.csv. Run it with network
 access to refresh the bundled data before packaging:
 
-    python -m marksix_analyzer.tools.generate_seed
+    python -m UKLottoAnalyzer.tools.generate_seed
 
 For deep historical data (back to 1993) HKJC's live API does not help —
 import a community CSV dataset via 匯入 CSV instead.
@@ -13,7 +13,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from marksix_analyzer.data_provider import HKJCProvider, export_csv
+from UKLottoAnalyzer.data_provider import HKJCProvider, export_csv
 
 OUT = Path(__file__).resolve().parent.parent / "seed_data.csv"
 

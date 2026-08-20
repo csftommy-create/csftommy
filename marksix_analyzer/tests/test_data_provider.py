@@ -1,7 +1,7 @@
 """Tests for HKJC response parsing and CSV import validation (offline)."""
 from __future__ import annotations
 
-from marksix_analyzer.data_provider import (
+from UKLottoAnalyzer.data_provider import (
     HKJCProvider,
     import_csv,
     parse_row,

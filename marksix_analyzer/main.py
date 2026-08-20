@@ -9,7 +9,7 @@ def main() -> int:
     from PySide6.QtWidgets import QApplication
 
     try:
-        from .config import APP_NAME_ZH, ensure_data_dir
+        from config import APP_NAME_ZH, ensure_data_dir
         from .db import Database
         from .ui.main_window import MainWindow
         from .ui.theme import apply_theme

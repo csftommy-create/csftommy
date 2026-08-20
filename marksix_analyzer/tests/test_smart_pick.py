@@ -5,9 +5,9 @@ import random
 
 import pytest
 
-from marksix_analyzer import smart_pick
-from marksix_analyzer.models import Draw
-from marksix_analyzer.smart_pick import FilterConfig, is_rejected
+from UKLottoAnalyzer import smart_pick
+from UKLottoAnalyzer.models import Draw
+from UKLottoAnalyzer.smart_pick import FilterConfig, is_rejected
 
 
 def cfg(**kwargs) -> FilterConfig:

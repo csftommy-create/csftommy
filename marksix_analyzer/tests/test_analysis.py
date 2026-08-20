@@ -3,8 +3,8 @@ from __future__ import annotations
 
 import pytest
 
-from marksix_analyzer import analysis
-from marksix_analyzer.models import Draw
+from UKLottoAnalyzer import analysis
+from UKLottoAnalyzer.models import Draw
 
 
 def make(draw_id, date, nums, extra):

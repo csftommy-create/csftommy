@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from config import DB_PATH, ensure_data_dir
-from .models import Draw, Pick
+from models import Draw, Pick
 
 SCHEMA_VERSION = "1"
 

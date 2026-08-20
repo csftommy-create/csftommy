@@ -1,5 +1,5 @@
 # -*- mode: python ; coding: utf-8 -*-
-"""PyInstaller spec — build with: pyinstaller MarkSixAnalyzer.spec
+"""PyInstaller spec — build with: pyinstaller UKLottoAnalyzer.spec
 
 Produces a single-file windowed executable (Windows) / .app bundle (macOS)
 that bundles seed_data.csv. See README for platform notes.
@@ -12,7 +12,7 @@ block_cipher = None
 # seed_data.csv lives inside the package; bundle it at the bundle root so
 # config.resource_path("seed_data.csv") -> sys._MEIPASS/seed_data.csv resolves.
 datas = [
-    (str(Path("marksix_analyzer") / "seed_data.csv"), "."),
+    (str(Path("UKLottoAnalyzer") / "seed_data.csv"), "."),
 ]
 
 # Use an icon only if the file is actually present, so builds work out of the
@@ -40,7 +40,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name="MarkSixAnalyzer",
+    name="UKLottoAnalyzer",
     debug=False,
     strip=False,
     upx=True,
@@ -54,5 +54,5 @@ if sys.platform == "darwin":
         exe,
         name="MarkSixAnalyzer.app",
         icon=icon_path,
-        bundle_identifier="com.garion.marksixanalyzer",
+        bundle_identifier="com.garion.UKLottoAnalyzer",
     )

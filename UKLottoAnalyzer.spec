@@ -1,28 +1,19 @@
 # -*- mode: python ; coding: utf-8 -*-
-"""PyInstaller spec — build with: pyinstaller UKLottoAnalyzer.spec
-
-Produces a single-file windowed executable (Windows) / .app bundle (macOS)
-that bundles seed_data.csv. See README for platform notes.
-"""
+"""PyInstaller spec for MarkSixAnalyzer."""
 import sys
 from pathlib import Path
 
 block_cipher = None
 
-# seed_data.csv lives inside the package; bundle it at the bundle root so
-# config.resource_path("seed_data.csv") -> sys._MEIPASS/seed_data.csv resolves.
-datas = [
-    (str(Path("UKLottoAnalyzer") / "seed_data.csv"), "."),
-]
+package_dir = Path("marksix_analyzer")
+datas = [(str(package_dir / "seed_data.csv"), "marksix_analyzer")]
 
-# Use an icon only if the file is actually present, so builds work out of the
-# box before anyone supplies app.ico / app.icns.
 _icon_name = "app.ico" if sys.platform == "win32" else "app.icns"
 icon_path = _icon_name if Path(_icon_name).exists() else None
 
 a = Analysis(
     ["run.py"],
-    pathex=[],
+    pathex=[str(Path.cwd())],
     binaries=[],
     datas=datas,
     hiddenimports=["pyqtgraph"],
@@ -40,19 +31,18 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name="UKLottoAnalyzer",
+    name="MarkSixAnalyzer",
     debug=False,
     strip=False,
     upx=True,
-    console=False,          # windowed
+    console=False,
     icon=icon_path,
 )
 
-# macOS app bundle
 if sys.platform == "darwin":
     app = BUNDLE(
         exe,
         name="MarkSixAnalyzer.app",
         icon=icon_path,
-        bundle_identifier="com.garion.UKLottoAnalyzer",
+        bundle_identifier="com.garion.MarkSixAnalyzer",
     )

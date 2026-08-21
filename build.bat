@@ -1,13 +1,12 @@
 @echo off
 REM ===============================================================
-REM  Build the Windows executable (MarkSixAnalyzer.exe) via PyInstaller.
-REM  Output: dist\MarkSixAnalyzer.exe  (single-file, windowed)
+REM Build the Windows executable (MarkSixAnalyzer.exe) via PyInstaller.
+REM Output: dist\MarkSixAnalyzer.exe
 REM ===============================================================
 setlocal
 cd /d "%~dp0"
 set PYTHONUTF8=1
 
-REM Pick the Python launcher (py preferred, else python on PATH).
 where py >nul 2>nul
 if %errorlevel%==0 (set "PY=py") else (set "PY=python")
 
@@ -19,7 +18,6 @@ if not %errorlevel%==0 (
     if not %errorlevel%==0 goto :fail
 )
 
-REM Ensure runtime deps are present so PyInstaller can collect them.
 %PY% -c "import PySide6, pyqtgraph, requests, platformdirs" 2>nul
 if not %errorlevel%==0 (
     echo Installing runtime dependencies from requirements.txt...
@@ -32,7 +30,7 @@ echo === Cleaning previous build ===
 if exist build rmdir /s /q build
 if exist dist rmdir /s /q dist
 
-echo.
+ echo.
 echo === Running PyInstaller ===
 %PY% -m PyInstaller --noconfirm --clean MarkSixAnalyzer.spec
 if not %errorlevel%==0 goto :fail
@@ -54,7 +52,7 @@ exit /b 0
 
 :fail
 echo.
-echo *** BUILD FAILED ***  See the messages above.
+echo *** BUILD FAILED ***
 echo.
 pause
 endlocal

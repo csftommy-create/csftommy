@@ -3,27 +3,20 @@ from __future__ import annotations
 
 import sys
 
+from PySide6.QtWidgets import QApplication
+
+from .config import APP_NAME_ZH, ensure_data_dir
+from .db import Database
+from .ui.main_window import MainWindow
+from .ui.theme import apply_theme
+
 
 def main() -> int:
-    # Package-relative imports work whether run as a module or a frozen exe.
-    from PySide6.QtWidgets import QApplication
-
-    try:
-        from config import APP_NAME_ZH, ensure_data_dir
-        from db import Database
-        from ui.main_window import MainWindow
-        from ui.theme import apply_theme
-    except ImportError:
-        # Running as a plain script (python UKLottoAnalyzer/main.py)
-        from config import APP_NAME_ZH, ensure_data_dir
-        from UKLottoAnalyzer.db import Database
-        from UKLottoAnalyzer.ui.main_window import MainWindow
-        from UKLottoAnalyzer.ui.theme import apply_theme
-
+    """Start the Mark Six Analyzer application."""
     ensure_data_dir()
     app = QApplication(sys.argv)
     app.setApplicationName(APP_NAME_ZH)
-    apply_theme(app)  # dark theme + chart config, before any widgets are built
+    apply_theme(app)
 
     db = Database()
     window = MainWindow(db)
